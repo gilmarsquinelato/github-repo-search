@@ -90,12 +90,13 @@ const useSearch = (): UseSearch => {
     fetchRepositories(searchTerm, info);
   };
 
-  const fetchRepositories = async (
+  const fetchRepositories = (
     searchTerm: string,
     paginationInfo: PaginationInfo,
   ) => {
     if (!searchTerm) {
       resetState();
+      return;
     }
 
     searchRepositories({

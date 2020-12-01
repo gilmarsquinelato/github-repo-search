@@ -9,6 +9,8 @@ import SearchIcon from '@material-ui/icons/Search';
 import CloseIcon from '@material-ui/icons/Close';
 import { InputBase } from '@material-ui/core';
 
+export const SEARCH_TEST_ID = 'search-input';
+
 interface SearchInputProps {
   onSearch: (searchTerm: string) => any;
 }
@@ -22,7 +24,11 @@ const SearchInput: React.FC<SearchInputProps> = ({ onSearch }) => {
   };
 
   return (
-    <StyledContainer component={Paper} maxWidth="sm">
+    <StyledContainer
+      component={Paper}
+      maxWidth="sm"
+      data-testid={SEARCH_TEST_ID}
+    >
       <StyledSearchIcon />
       <InputBase
         placeholder="Search"

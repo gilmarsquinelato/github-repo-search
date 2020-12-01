@@ -12,6 +12,9 @@ import { Repository } from '../models/repository';
 import { PaginationInfo } from '../models/pagination';
 import styled from '@emotion/styled';
 
+export const TABLE_TEST_ID = 'repository-table';
+export const TABLE_ITEM_TEST_ID = 'repository-table-item';
+
 interface RepositoryTableProps {
   repositories: Repository[];
   paginationInfo: PaginationInfo;
@@ -26,7 +29,7 @@ const RepositoryTable: React.FC<RepositoryTableProps> = ({
   onSetItemsPerPage,
 }) => {
   return (
-    <Paper>
+    <Paper data-testid={TABLE_TEST_ID}>
       <TableContainer>
         <Table>
           <Head />
@@ -63,7 +66,10 @@ const Body: React.FC<BodyProps> = ({ repositories }) => {
   return (
     <TableBody>
       {repositories.map((repo) => (
-        <TableRow key={repo.id}>
+        <TableRow
+          key={repo.id}
+          data-testid={`${TABLE_ITEM_TEST_ID}-${repo.id}`}
+        >
           <TableCell>{repo.name}</TableCell>
           <NumberCell align="right">🌟 {repo.stargazerCount}</NumberCell>
           <NumberCell align="right">🍴 {repo.forkCount}</NumberCell>
