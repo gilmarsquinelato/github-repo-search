@@ -1,4 +1,3 @@
-import 'cypress/types';
 import { SEARCH_TEST_ID } from '../../src/components/SearchInput';
 import { TABLE_TEST_ID } from '../../src/repository/components/RepositoryTable';
 
@@ -38,7 +37,7 @@ describe('search', () => {
       expect(request.body.operationName).to.be.equal('SearchRepositories');
       expect(request.body.variables.query).to.be.equal('react');
 
-      expect(response.body.data.search.nodes.length).to.be.equal(5);
+      expect(response?.body.data.search.nodes.length).to.be.equal(5);
     });
   });
 
@@ -90,7 +89,7 @@ describe('search', () => {
     cy.wait('@postSearch').should(({ request, response }) => {
       expect(request.body.variables.first).to.be.equal(25);
 
-      expect(response.body.data.search.nodes.length).to.be.equal(25);
+      expect(response?.body.data.search.nodes.length).to.be.equal(25);
     });
 
     cy.get('@table').find('tbody').children().should('have.length', 25);

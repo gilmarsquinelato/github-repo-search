@@ -35,3 +35,8 @@ REACT_APP_TOKEN=<token> yarn start
 REACT_APP_TOKEN=<token> yarn build
 npx serve -s ./build
 ```
+
+## Docker
+```bash
+TOKEN=<token> yarn docker:build
+```

@@ -7,6 +7,7 @@
       "DOM",
       "ESNext"
     ],
+    "types": ["cypress"],
     "allowJs": true,
     "jsx": "react-jsx",
     "noEmit": true,
